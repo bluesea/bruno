@@ -260,6 +260,10 @@ class BrnTabBarState extends State<BrnTabBar> {
     bool _isScrollable = widget.tabs!.length > _scrollableLimitTabLength ||
         widget.tabWidth != null ||
         widget.isScroll;
+    if (widget.isScroll) {
+      // 该属性为主
+      _isScrollable = widget.isScroll;
+    }
     return TabBar(
         tabs: fillWidgetByDataList(_isScrollable),
         controller: widget.controller,
@@ -409,7 +413,7 @@ class BrnTabBarState extends State<BrnTabBar> {
               ),
               backgroundColor: Colors.red,
               alignment: Alignment.topLeft,
-              offset:Offset(_dx,_dy) ,
+              offset: Offset(_dx, _dy),
               padding: _badgePadding,
               largeSize: _largeSize,
               child: Text(
@@ -485,7 +489,7 @@ class BrnTabBarState extends State<BrnTabBar> {
                           color: Color(0xFFFFFFFF), fontSize: 10, height: 1),
                     ),
                     alignment: Alignment.topLeft,
-                    offset: Offset(_dx,_dy),
+                    offset: Offset(_dx, _dy),
                     padding: _badgePadding,
                     largeSize: _largeSize,
                     child: Text(badgeTab.text!,
