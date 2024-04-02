@@ -177,14 +177,14 @@ class BrnDoughnut extends CustomPainter {
                 : indicatorEndOffset.dx -
                     textWidth / 2 -
                     this.textHorizontalPadding,
-            indicatorEndOffset.dy);
+            indicatorEndOffset.dy - textHeight / 2);
         Rect baseRect = Rect.fromCenter(
             center: baseRectCenter,
             width: textWidth + this.textHorizontalPadding * 2,
             height: textHeight + this.textVerticalPadding * 2);
         RRect rRect = RRect.fromRectAndRadius(baseRect, Radius.circular(2));
         Paint textBackgroundPaint = Paint()
-          ..color = Colors.black.withOpacity(0.7);
+          ..color = Colors.yellow.withOpacity(0.7);
         canvas.drawRRect(rRect, textBackgroundPaint);
 
         textPainter.paint(
@@ -216,9 +216,9 @@ class BrnDoughnut extends CustomPainter {
     double dy = offset2.dy;
     if (offset1.dx <= offset2.dx) {
       // 向右
-      dx = offset2.dx + 10;
+      dx = offset2.dx + 50;
     } else {
-      dx = offset2.dx - 10;
+      dx = offset2.dx - 50;
     }
     return Offset(dx, dy);
   }

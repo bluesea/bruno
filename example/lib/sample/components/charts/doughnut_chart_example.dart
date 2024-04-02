@@ -1,5 +1,3 @@
-
-
 import 'dart:math';
 
 import 'package:bruno/bruno.dart';
@@ -29,7 +27,7 @@ class DoughnutChartExampleState extends State<DoughnutChartExample> {
     super.initState();
     for (int i = 0; i < count; i++) {
       dataList.add(BrnDoughnutDataItem(
-          title: '示例',
+          title: '模特',
           value: random(1, 5).toDouble(),
           color: getColorWithIndex(i)));
     }
@@ -53,12 +51,15 @@ class DoughnutChartExampleState extends State<DoughnutChartExample> {
       body: Column(
         children: <Widget>[
           BrnDoughnutChart(
-            padding: EdgeInsets.all(50),
+            padding: EdgeInsets.all(110),
             width: 200,
             height: 200,
+            ringWidth: 30,
+            fontColor: Colors.black,
+            fontSize: 10,
             data: dataList,
             selectedItem: selectedItem,
-            showTitleWhenSelected: true,
+            showTitleWhenSelected: false,
             selectCallback: (BrnDoughnutDataItem? selectedItem) {
               setState(() {
                 this.selectedItem = selectedItem;
@@ -85,7 +86,7 @@ class DoughnutChartExampleState extends State<DoughnutChartExample> {
                         dataList.clear();
                         for (int i = 0; i < count; i++) {
                           dataList.add(BrnDoughnutDataItem(
-                              title: '示例',
+                              title: '模特',
                               value: random(1, 5).toDouble(),
                               color: getColorWithIndex(i)));
                         }
